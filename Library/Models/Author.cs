@@ -2,15 +2,14 @@ using System.Collections.Generic;
 
 namespace Library.Models
 {
-  public class Book
+  public class Author
   {
-    public Book()
+    public Author()
     {
       this.JoinEntries = new HashSet<BookAuthor>();
     }
-    public int BookId { get; set; }
-    public string Title { get; set; }
-    public bool CheckedOut { get; set; }
+    public int AuthorId { get; set; }
+    public string Name { get; set; }
     public virtual ICollection<BookAuthor> JoinEntries { get; set; }
   }
 }

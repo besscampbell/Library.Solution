@@ -5,10 +5,10 @@ using System.IO;
 
 namespace Library.Models
 {
-  public class LibraryContextLibrary : IDesignTimeDbContextLibrary<LibraryContext>
+  public class LibraryContextFactory : IDesignTimeDbContextFactory<LibraryContext>
   {
 
-    LibraryContext IDesignTimeDbContextLibrary<LibraryContext>.CreateDbContext(string[] args)
+    LibraryContext IDesignTimeDbContextFactory<LibraryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
           .SetBasePath(Directory.GetCurrentDirectory())
