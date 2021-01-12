@@ -4,25 +4,18 @@
 
 @model Library.Models.Book;
 
-<h4>Add A Book</h4>
+<h2>Add an Author</h2>
 
-@* @using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Title)
-  @Html.TextBoxFor(model => model.Title)
-
-    @Html.Label("Status")
-    @Html.DropDownList("CheckoutId")
-
-  <input class="btn btn-info" type="submit" value="Add">
-} *@
+<h4>Add an Author to this book: @Html.DisplayFor(model => model.Title)</h4>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.BookId)
 
-  @Html.LabelFor(model => model.Title)
-  @Html.EditorFor(model => model.Title)
+  @* @Html.Label("Select Author")
+  @Html.DropDownList("AuthorId")
+
+  <input type="submit" value="Save" /> *@
 
   {
     int cnt = 0;
@@ -45,4 +38,5 @@
     @:</tr>
   }
   <input type="submit" value="Save" />
+}
 }

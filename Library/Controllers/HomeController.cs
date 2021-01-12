@@ -11,21 +11,14 @@ namespace Library.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly LibraryContext _db;
-    public HomeController(LibraryContext db)
+  //   private readonly LibraryContext _db;
+  //   public HomeController(LibraryContext db)
+  //   {
+  //     _db = db;
+  //   }
+    public ActionResult Index()
     {
-      _db = db;
-    }
-
-    public async Task<IActionResult> Index( string searchString)
-    {
-      var books = from b in _db.Books
-        select b;
-      if (!String.IsNullOrEmpty(searchString))
-      {
-        books = books.Where(s => s.Title.Contains(searchString));
-      }
-      return View(await books.ToListAsyc());
+      return View();
     }
   }
 }

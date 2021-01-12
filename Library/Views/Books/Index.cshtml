@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Library.Models
+@model List<Library.Models.Book>
+
+
+
+  @using(Html.BeginForm())
+  {
+    <p>
+        @Html.Label("Title:") 
+        @Html.TextBox("SearchString")
+        <input type="submit" value="Look up" class="btn btn-info"/>
+    </p>
+  }
+
+@if(Model.Count == 0)
+{
+
+}
+@foreach(Book book in Model)
+{
+  <h3>@Html.ActionLink($"{book.Title}", "Details", "Books", new { id = book.BookId})</h3>
+  
+}
+
+@Html.ActionLink("+ new Book", "Create", "Books", null, new { @class = "links"})

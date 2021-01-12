@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Author
+@using Library.Models
+
+<h2>@Model.Name</h2>
+<br/>
+@if(Model.JoinEntries.Count == 0)
+{
+  <h3>There are no books attached to this author!</h3>
+  
+}
+else
+{
+<h3>Authored by:</h3>
+  @foreach(var join in Model.JoinEntries)
+  {
+    <h3>@Html.ActionLink($"{join.Book.Title}", "Details", "Books", new {id = join.Book.BookId})</h3>
+  }
+}
+<h4>@Html.ActionLink("Delete this Author", "Delete", "Authors", new {id = Model.AuthorId}, new {@class= "links"})</h4>

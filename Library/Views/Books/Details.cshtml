@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Book
+@using Library.Models
+
+<h2>@Model.Title</h2>
+<br/>
+
+@if(Model.JoinEntries.Count == 0)
+{
+  <h3>There are no Authors attached to this book!</h3>
+}
+else
+{
+<h3>Authored by:</h3>
+  @foreach(var join in Model.JoinEntries)
+  {
+    <h3>@Html.ActionLink($"{join.Author.Name}", "Details", "Authors", new {id = join.Author.AuthorId})</h3>
+  }
+}
+@if(Model.CheckedOut == false)
+{
+  <h4>This book is available</h4>
+}
+else
+{
+  <h4>This book is checked out</h4>
+}
+
+<br/>
+<h4>@Html.ActionLink("Delete Book", "Delete", null,  new { id = Model.BookId }, new { @class = "links"} ) | @Html.ActionLink("Update Title", "Edit", null,  new { id = Model.BookId }, new { @class = "links"} )</h4>

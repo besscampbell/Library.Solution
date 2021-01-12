@@ -3,16 +3,9 @@
 }
 
 @using Library.Models
-@model Library.Models.Book
+@model List<Library.Models.Book>
 
 <h2>Welcome to the James P.L. Middle School Library</h2>
 
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Title)
-  @Html.TextBoxFor(model => model.Title)
-
-  <input type="submit" value="Look up" class="btn btn-info">
-}
-
-@Html.ActionLink("+ new Book", "Create", "Books", null, new { @class = "links"})
+@Html.ActionLink("See Authors", "Index", "Authors", null, new { @class = "links"})
+@Html.ActionLink("See Books", "Index", "Books", null, new { @class = "links"})
