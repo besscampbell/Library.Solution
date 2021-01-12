@@ -34,9 +34,16 @@ namespace Library.Controllers
       return View();
     }
     [HttpPost]
-    public ActionResult Create (Book book)
+    public ActionResult Create (Book book, List<int> authors)
     {
       _db.Books.Add(book);
+      if (authors.Count != 0)
+      {
+        foreach( int author in authors)
+        {
+          _db.BookAuthor.Add(new BookAuthor() {AuthorId = author, BookId = book.BookId});
+        }
+      }
       _db.SaveChanges();
       return RedirectToAction("Index", "Home");
     }
@@ -81,7 +88,6 @@ namespace Library.Controllers
           _db.BookAuthor.Add(new BookAuthor() {AuthorId = author, BookId = book.BookId});
         }
       }
-      _db.Entry(book).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index", "Home");
 

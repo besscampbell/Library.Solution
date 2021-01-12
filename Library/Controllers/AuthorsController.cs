@@ -43,11 +43,26 @@ namespace Library.Controllers
     public ActionResult Details(int id)
     {
       var thisAuthor = _db.Authors
-        .Include(author => author.JoinEntries)
-        .ThenInclude(join => join.Book)
+        // .Include(author => author.JoinEntries)//eager loading
+        // .ThenInclude(join => join.Book)
         .FirstOrDefault(author => author.AuthorId == id);
       return View(thisAuthor);
     }
+
+    public ActionResult Edit(int id)
+    {
+      var thisAuthor = _db.Authors.FirstOrDefault(author => author.AuthorId == id);
+      return View(thisAuthor);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Author author)
+    {
+      _db.Entry(author).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
     public ActionResult Delete(int id)
     {
       var thisAuthor = _db.Authors.FirstOrDefault(author => author.AuthorId == id);

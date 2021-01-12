@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    [Migration("20210111193247_Initial")]
-    partial class Initial
+    [Migration("20210112184929_Virtual")]
+    partial class Virtual
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,8 @@ namespace Library.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
+
+                    b.Property<bool>("Owned");
 
                     b.HasKey("AuthorId");
 

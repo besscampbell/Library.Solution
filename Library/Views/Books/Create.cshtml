@@ -6,17 +6,6 @@
 
 <h4>Add A Book</h4>
 
-@* @using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Title)
-  @Html.TextBoxFor(model => model.Title)
-
-    @Html.Label("Status")
-    @Html.DropDownList("CheckoutId")
-
-  <input class="btn btn-info" type="submit" value="Add">
-} *@
-
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.BookId)
@@ -25,8 +14,9 @@
   @Html.EditorFor(model => model.Title)
 
   {
+    @:<table>
     int cnt = 0;
-
+    @:<tr>
     <p>Availible Authors:</p>
     foreach (var author in ViewBag.Authors)
     {
@@ -42,7 +32,8 @@
             @author.Name
       @:</td>
     }
-    @:</tr>
+      @:</tr>
+    @:</table>
   }
   <input type="submit" value="Save" />
 }

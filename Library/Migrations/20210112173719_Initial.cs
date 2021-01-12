@@ -13,7 +13,8 @@ namespace Library.Migrations
                 {
                     AuthorId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: true),
+                    Owned = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
