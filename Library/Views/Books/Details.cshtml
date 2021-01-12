@@ -19,6 +19,17 @@ else
   {
     <h3>@Html.ActionLink($"{join.Author.Name}", "Details", "Authors", new {id = join.Author.AuthorId})</h3>
   }
+  int count = 0;
+  @foreach( Copy copy in ViewBag.Copies)
+  {
+    
+    @if ( Model.BookId == copy.BookId)
+    {
+      count++;
+    }
+  }
+<h4>Number of books:@count</h4>
+
 }
 @* @if(Model.CheckedOut == false)
 {
@@ -29,5 +40,6 @@ else
   <h4>This book is checked out</h4>
 } *@
 
+
 <br/>
-<h4>@Html.ActionLink("Delete Book", "Delete", null,  new { id = Model.BookId }, new { @class = "links"} ) | @Html.ActionLink("Update Title", "Edit", null,  new { id = Model.BookId }, new { @class = "links"} )</h4>
+<h4>@Html.ActionLink("Delete Book", "Delete", null,  new { id = Model.BookId }, new { @class = "links"} ) | @Html.ActionLink("Update Title", "Edit", null,  new { id = Model.BookId }, new { @class = "links"} ) | @Html.ActionLink("+ another Copy", "Create",  "Copies",  new { bookId = Model.BookId }, new { @class = "links"} )</h4>

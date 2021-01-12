@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Copy;
+
+@using (Html.BeginForm())
+{
+    
+    @Html.Hidden("ViewBag.BookId");
+
+    @Html.Label("How many copies?");
+    @Html.TextBox("number");
+
+    <input type="submit" value="Save" />
+}
