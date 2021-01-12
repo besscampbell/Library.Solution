@@ -59,7 +59,7 @@ AppSettings
 <br>
 
 ## SQL Chart
-![](./ReadMeAssets/library_sql.png)
+![](./ReadMeAssets/library_sql.PNG)
 
 ## Known Bugs
 
