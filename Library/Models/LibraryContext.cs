@@ -9,7 +9,7 @@ namespace Library.Models
     public DbSet<BookAuthor> BookAuthor { get; set; }
     public LibraryContext(DbContextOptions options) : base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) //allows lazy loading
     {
       optionsBuilder.UseLazyLoadingProxies();
     }

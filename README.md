@@ -2,7 +2,7 @@
 
 #### _DATE 01.11.2021_
 
-#### By _** Patrick Osten **_
+#### By _** Patrick Osten & Bess Campbell**_
 
 ## Description
 - This application was made as part of the Epicodus Coding bootcamp coursework.
@@ -58,13 +58,17 @@ AppSettings
 </details>
 <br>
 
+## SQL Chart
+![](./ReadMeAssets/library_sql.png)
+
 ## Known Bugs
 
 This application has no known bugs. 
 
 ## Support and contact details
 
-Patrick Osten at <posten.coding@gmail.com>
+Patrick Osten at <posten.coding@gmail.com> 
+Bess Campbell at <bess.k.campbell@gmail.com>
 
 
 ## Technologies Used
