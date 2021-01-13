@@ -28,8 +28,8 @@ else
       count++;
     }
   }
-<h4>Number of books:@count</h4>
-
+<h4>Number of Copies: @count</h4>
+@Html.ActionLink("Update Status", "Index", "Copies")
 }
 @* @if(Model.CheckedOut == false)
 {

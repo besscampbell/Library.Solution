@@ -1,0 +1,11 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Library.Models
+
+
+@foreach(Copy copy in ViewBag.Copies)
+{
+  @Html.ActionLink("Update Checkout Status", "Edit", null, new {id = copy.CopyId})<br>
+}

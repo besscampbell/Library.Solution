@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Copy;
+
+<h2>Edit</h2>
+
+<h4>Edit this copy of: </h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CopyId)
+    @Html.HiddenFor(model => model.BookId)
+
+    @Html.LabelFor(model => model.DueDate)
+    @Html.EditorFor(model => model.DueDate)
+
+    @Html.LabelFor(model => model.CheckedOut)
+    @Html.EditorFor(model => model.CheckedOut)
+
+    <input type="submit" value="Save" />
+}

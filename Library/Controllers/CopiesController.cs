@@ -17,6 +17,11 @@ namespace Library.Controllers
     {
       _db = db;
     }
+    public ActionResult Index()
+    {
+      ViewBag.Copies = _db.Copies.ToList();
+      return View();
+    }
     public ActionResult Create(int bookId)
     {
       ViewBag.BookId = bookId;
@@ -36,6 +41,21 @@ namespace Library.Controllers
         }
       }
       return RedirectToAction("Index", "Home");
+    }
+
+    public ActionResult Edit(int id)
+    {
+      // ViewBag.Book = _db.Books;
+      var thisCopy = _db.Copies.FirstOrDefault(copy => copy.CopyId == id);
+      return View(thisCopy);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Copy copy)
+    {
+      _db.Entry(copy).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", "Books", new { id = copy.BookId});
     }
   }
 }
