@@ -2,6 +2,9 @@ using Library.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Library.ViewModels;
 
@@ -21,8 +24,45 @@ namespace Library.Controllers
 
         public ActionResult Index()
         {
+            return View(_db.Patrons.ToList());
+        }
+
+        
+
+        public ActionResult Create()
+        {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create (Patron patron)
+        {
+            _db.Patrons.Add(patron);
+            _db.SaveChanges();
+            return RedirectToAction("Details", new { id = patron.Id});
+        }
+
+        public ActionResult Details(string id)
+        {
+            var thisPatron = _db.Patrons.FirstOrDefault(patron => patron.Id == id);
+            return View(thisPatron);
+        }
+
+        // public ActionResult Edit(string id)
+        // {
+        //     var thisPatron = _db.Patrons.FirstOrDefault(patron => patron.Id == id);
+        //     return View(thisPatron);
+        // }
+
+        // [HttpPost]
+        // public ActionResult Edit(Patron patron)
+        // {
+        //     Console.WriteLine(patron.Name);
+        //     Console.WriteLine(patron.Id);
+        //     // _db.Entry(patron).State = EntityState.Modified;
+        //     _db.SaveChanges();
+        //     return RedirectToAction("Details", new { id = patron.Id});
+        // }
 
         public IActionResult Register()
         {
@@ -43,6 +83,7 @@ namespace Library.Controllers
                 return View();
             }
         }
+
         public ActionResult Login()
         {
             return View();

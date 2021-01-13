@@ -10,8 +10,8 @@
   @using(Html.BeginForm())
   {
     <p>
-        @Html.Label("Author:") 
-        @Html.TextBox("SearchString")
+        @Html.Label("") 
+        @Html.TextBox("SearchString", null, new {placeholder="Search For Author"})
         <input type="submit" value="Look up" class="btn btn-info"/>
     </p>
   }

@@ -26,10 +26,11 @@ else
     @if ( Model.BookId == copy.BookId)
     {
       <p>@copy.DueDate</p> 
+      @Html.ActionLink("Edit", "Edit", "Copies", new { @copy.CopyId })
+      @Html.ActionLink("Checkout", "Checkout", "Copies", new { @copy.CopyId })
     }
   }
 @* <h4>Number of Copies: @count</h4> *@
-@Html.ActionLink("Update Status", "Index", "Copies")
 }
 @* @if(Model.CheckedOut == false)
 {

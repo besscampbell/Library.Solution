@@ -1,0 +1,19 @@
+@{
+  Layout= "_Layout";
+}
+
+@using Library.Models
+@model Library.Models.Copy
+
+<h2>Would you like to checkout this Title? : @Model.Book.Title</h2>
+<h2>It would be due two weeks from today.</h2>
+
+@using(Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.CopyId)
+  @Html.HiddenFor(model => model.Patron.Id)
+  @Html.HiddenFor(model => model.DueDate)
+  @Html.HiddenFor(model => model.CheckedOut)
+
+  <input type="submit" value="Checkout" />
+}

@@ -14,7 +14,7 @@
 }
 else
 {
-<h3>Authored by:</h3>
+<h3>Penned:</h3>
   @foreach(var join in Model.JoinEntries)
   {
     <h3>@Html.ActionLink($"{join.Book.Title}", "Details", "Books", new {id = join.Book.BookId})</h3>

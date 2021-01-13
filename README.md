@@ -2,13 +2,12 @@
 
 #### _DATE 01.11.2021_
 
-#### By _** Patrick Osten & Bess Campbell**_
+#### By _**Patrick Osten & Bess Campbell**_
 
 ## Description
 - This application was made as part of the Epicodus Coding bootcamp coursework.
 
 
-![](ReadMeAssets/recording.gif)
 
 ## Setup/Installation Requirements
 
@@ -58,12 +57,15 @@ AppSettings
 </details>
 <br>
 
+
+
 ## SQL Chart
-![](./ReadMeAssets/library_sql.PNG)
+
+<img src ="ReadMeAssets/sql_Library.png" alt-text="the sql chart for the database">
 
 ## Known Bugs
 
-This application has no known bugs. 
+* In Views/Books/Details line 26 : Will not display 'copies' if no author is assigned. 
 
 ## Support and contact details
 

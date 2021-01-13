@@ -3,14 +3,16 @@ using System;
 using Library.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Library.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20210113220711_Patrons2")]
+    partial class Patrons2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -72,13 +74,15 @@ namespace Library.Migrations
 
                     b.Property<int>("CopyId");
 
-                    b.Property<string>("PatronId");
+                    b.Property<int>("PatronId");
+
+                    b.Property<string>("PatronId1");
 
                     b.HasKey("CheckoutsId");
 
                     b.HasIndex("CopyId");
 
-                    b.HasIndex("PatronId");
+                    b.HasIndex("PatronId1");
 
                     b.ToTable("Checkouts");
                 });
@@ -295,7 +299,7 @@ namespace Library.Migrations
 
                     b.HasOne("Library.Models.Patron", "Patron")
                         .WithMany("Checkouts")
-                        .HasForeignKey("PatronId");
+                        .HasForeignKey("PatronId1");
                 });
 
             modelBuilder.Entity("Library.Models.Copy", b =>

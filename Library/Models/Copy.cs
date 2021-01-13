@@ -13,6 +13,7 @@ namespace Library.Models
     }
     public int CopyId { get; set; }
     public int BookId { get; set; }
+    public virtual Patron Patron { get; set; }
     public virtual Book Book { get; set; }
     [DisplayName("Due Date")]
     [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM-dd-yyyy}")]

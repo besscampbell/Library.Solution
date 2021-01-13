@@ -3,9 +3,11 @@
 }
 
 @using Library.Models
+@model List<Library.Models.Copy>
 
+<h1>Due dates for @User.Identity.Name</h1> 
 
-@foreach(Copy copy in ViewBag.Copies)
+@foreach(Copy copy in Model)
 {
-  @Html.ActionLink($"{copy.CopyId}", "Edit", null, new {id = copy.CopyId})<br>
+  @Html.ActionLink($"{copy.DueDate}", "Edit", null, new {id = copy.CopyId})<br>
 }
