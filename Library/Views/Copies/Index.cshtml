@@ -7,5 +7,5 @@
 
 @foreach(Copy copy in ViewBag.Copies)
 {
-  @Html.ActionLink("Update Checkout Status", "Edit", null, new {id = copy.CopyId})<br>
+  @Html.ActionLink($"{copy.CopyId}", "Edit", null, new {id = copy.CopyId})<br>
 }

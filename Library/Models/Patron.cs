@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 
 namespace Library.Models
 {
-  public class Patron 
+  public class Patron : IdentityUser
   {
     public Patron()
   {

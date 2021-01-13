@@ -19,16 +19,16 @@ else
   {
     <h3>@Html.ActionLink($"{join.Author.Name}", "Details", "Authors", new {id = join.Author.AuthorId})</h3>
   }
-  int count = 0;
+  @* int count = 0; *@
   @foreach( Copy copy in ViewBag.Copies)
   {
     
     @if ( Model.BookId == copy.BookId)
     {
-      count++;
+      <p>@copy.DueDate</p> 
     }
   }
-<h4>Number of Copies: @count</h4>
+@* <h4>Number of Copies: @count</h4> *@
 @Html.ActionLink("Update Status", "Index", "Copies")
 }
 @* @if(Model.CheckedOut == false)
