@@ -1,4 +1,4 @@
-# _ Practice Project: Library_
+# Practice Project: Library
 ### _This project is not in a complete or portfolio ready state, and should not be considered representational of professional work._<br><br>
 
 #### _DATE 01.11.2021_
