@@ -1,4 +1,5 @@
-# _Library_
+# _ Practice Project: Library_
+### _This project is not in a complete or portfolio ready state, and should not be considered representational of professional work._<br><br>
 
 #### _DATE 01.11.2021_
 
@@ -6,8 +7,6 @@
 
 ## Description
 - This application was made as part of the Epicodus Coding bootcamp coursework.
-
-
 
 ## Setup/Installation Requirements
 
